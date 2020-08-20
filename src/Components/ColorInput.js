@@ -1,0 +1,38 @@
+import React, {Component} from 'react';
+
+class ColorInput extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      status: null
+    }
+  }
+
+  handleChange = (event) => {
+    this.setState({status: event.target.value});
+  }
+  
+  render() {
+    return(
+      <li className="ColorInput cards-item" >
+        <div className="card">
+          <div className="card-content">
+            <div className="card-image" style={{backgroundColor: this.state.status}}></div>
+            <div className="card-title">Color</div>
+            <div className="card-text">
+              <div className="input btn-block">
+                <input type="color" className="colorButton" onChange={this.handleChange}/>
+              </div>
+              <div className="output" >
+                <label htmlFor="colorOutput">State: </label>
+                <span name="colorOutput">{this.state.status}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    )
+  }
+}
+
+export default ColorInput;
